@@ -74,11 +74,9 @@ if __name__ == "__main__":
                 # sys.exit()
         
         # 9 - Decide Language - Spanish - Move/Copy converted Mufi files to final destinations
+        new_file_name = file_name
         if "SpaF" in file_name:
-            new_file_name = file_name
-            if "77HD-SpaF" in new_file_name: # Aca se podria sacar el primer if y poner directo este.
-                new_file_name = new_file_name.split("77HD-SpaF")
-                new_file_name = new_file_name[0] + "06HD_spp" + new_file_name[1]
+                new_file_name = new_file_name.replace("77HD-SpaF", "06HD_spp")
 
             try:
                 copyfile("//svrhsuvnp38/ProgramData/Vod_Mufi_V2_0-18/Files/HBOMAX_2997/{}.xml".format(file_name), "//mdsnas-data.hbo-lag.com/DaletVOD/DPSHARE/RSU/Watchfolder/SUBTITLES/TTML/{}.xml".format(new_file_name))
@@ -99,10 +97,8 @@ if __name__ == "__main__":
 
         # 10 - Decide Language - Portuguese - Move/Copy converted Mufi files to final destinations
         if "PorF" in file_name:
-            new_file_name = file_name
-            if "78HD-PorF" in new_file_name:
-                new_file_name = new_file_name.split("78HD-PorF")
-                new_file_name = new_file_name[0] + "06HD_pop" + new_file_name[1]
+            
+            new_file_name = new_file_name.replace("78HD-PorF", "06HD_pop")
             
             try:
                 copyfile("//svrhsuvnp38/ProgramData/Vod_Mufi_V2_0-18/Files/HBOMAX_2997/{}.xml".format(file_name), "//mdsnas-data.hbo-lag.com/DaletVOD/DPSHARE/RSU/Watchfolder/SUBTITLES/TTML/{}.xml".format(new_file_name))
@@ -123,10 +119,7 @@ if __name__ == "__main__":
         
         # 11 - Decide Language - English - Move/Copy converted Mufi files to final destinations
         if "EngF" in file_name:
-            new_file_name = file_name
-            if "76HD-EngF" in new_file_name:
-                new_file_name = new_file_name.split("76HD-EngF")
-                new_file_name = new_file_name[0] + "06HD_enp" + new_file_name[1]
+            new_file_name = new_file_name.replace("76HD-EngF", "06HD_enp")
             
             try:
                 copyfile("//svrhsuvnp38/ProgramData/Vod_Mufi_V2_0-18/Files/HBOMAX_2997/{}.xml".format(file_name), "//mdsnas-data.hbo-lag.com/DaletVOD/DPSHARE/RSU/Watchfolder/SUBTITLES/TTML/{}.xml".format(new_file_name))

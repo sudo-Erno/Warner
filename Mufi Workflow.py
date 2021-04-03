@@ -44,15 +44,16 @@ if __name__ == "__main__":
         file_name = file_name + "_" + file_extension + ".*"
 
         # D & E - Replace Substring
+
+        file_name_splited = file_name
+
         if "06HD" in file_name:
-            file_name_splited = file_name.split("06HD")
-            file_name = file_name_splited[0] + "73HD" + file_name_splited[1]
+            file_name_splited.replace("06HD", "73HD")
             print("[*] File rename to 73HD")
             print("\n")
 
         elif "73HD" in file_name:
-            file_name_splited = file_name.split("73HD")
-            file_name = file_name_splited[0] + "06HD" + file_name_splited[1]
+            file_name_splited.replace("73HD", "06HD")
             print("[*] File rename to 06HD")
             print("\n")
         

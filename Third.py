@@ -26,14 +26,15 @@ if __name__ == "__main__":
 
         # 3C - 3D - 3E
         partial_subtitle = file_name_no_extension
-        if "-EngP" in partial_subtitle:
-            partial_subtitle = partial_subtitle.replace("-EngP", "_enp")
         
-        elif "-SpaF" in partial_subtitle:
-            partial_subtitle = partial_subtitle.replace("-SpaF", "_spp")
+        # English
+        partial_subtitle = partial_subtitle.replace("-EngP", "_enp")
         
-        elif "-PorF" in partial_subtitle:
-            partial_subtitle = partial_subtitle.replace("-Porf", "_pop")
+        # Spanish
+        partial_subtitle = partial_subtitle.replace("-SpaF", "_spp")
+
+        # Portuguese
+        partial_subtitle = partial_subtitle.replace("-Porf", "_pop")
 
         # F
         subtitles = file_name_no_extension + "_" + file_extension + ".*"
@@ -86,12 +87,11 @@ if __name__ == "__main__":
 
         # 9 En el PDF dice 'SpaF*', pero luego dice 'SpaF'...asumo por la segunda opcion        
         # Si es SpaF
+        # nfn - New File Name
+         nfn = file_name_no_extension
         if "SpaF" in file_name:
-            # A
-            # nfn - New File Name
-            nfn = file_name_no_extension
-            if "77HD-SpaF" in file_name_no_extension:
-                nfn = nfn.replace("77HD-SpaF", "06HD_spp")
+            # A           
+            nfn = nfn.replace("77HD-SpaF", "06HD_spp")
 
             try:
                 copyfile("//svrhsuvnp38/ProgramData/Vod_Mufi_V2_0-18/Files/SDVI/{}_spa.xml".format(file_name_no_extension), "//mdsnas-data.hbo-lag.com/DaletVOD/DPSHARE/RSU/Watchfolder/SUBTITLES/TTML/{}.ttml".format(nfn))
@@ -108,9 +108,8 @@ if __name__ == "__main__":
             
         # Si es PorF
         if "PorF" in file_name:
-            nfn = file_name_no_extension
-            if "78HD-PorF" in nfn:
-                nfn = nfn.replace("78HD-PorF", "06HD_pop")
+            
+            nfn = nfn.replace("78HD-PorF", "06HD_pop")
             
             try:
                 copyfile("//svrhsuvnp38/ProgramData/Vod_Mufi_V2_0-18/Files/SDVI/{}.xml".format(file_name_no_extension), "//mdsnas-data.hbo-lag.com/DaletVOD/DPSHARE/RSU/Watchfolder/SUBTITLES/TTML/{}.ttml".format(nfn))
@@ -127,9 +126,8 @@ if __name__ == "__main__":
 
         # Si es EngF
         if "EngF" in file_name:
-            nfn = file_name_no_extension
-            if "76HD-EngF" in nfn:
-                nfn = nfn.replace("76HD-EngF", "06HD_enp")
+            
+            nfn = nfn.replace("76HD-EngF", "06HD_enp")
 
             try:
                 copyfile("//svrhsuvnp38/ProgramData/Vod_Mufi_V2_0-18/Files/SDVI/{}_eng.xml".format(file_name_no_extension), "//mdsnas-data.hbo-lag.com/DaletVOD/DPSHARE/RSU/Watchfolder/SUBTITLES/TTML/{}.ttml".format(nfn))
@@ -147,6 +145,8 @@ if __name__ == "__main__":
         # 12
         try:
             shutil.move(file_path, "//mdsnas-data.hbo-lag.com/Watchfolders/Subtitles/IN_SDVI/Processed/{}".format(file_name))
+        except:
+            print("[!] Could not move the file to the desire path.")
 
 
 
