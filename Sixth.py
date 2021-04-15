@@ -4,6 +4,7 @@ from shutil import copyfile
 class Rename():
     def __init__(self, path = r'C:\Users\Erno\Documents\"Programas Atom"\Python\Warner\"Ejemplos Softni Files"'):
         self.WATCH_PATH = "./Warner/Ejemplos Softni Files"
+        self.path = path
 
         self.accept_pattern = ['.spa', '.por', '.eng', '.pop', '.spp', '.enp', '.SPA', '.ENG', '.POR']
 
@@ -63,7 +64,7 @@ class Rename():
                 if file_format == self.accept_pattern[-1] and not format_accepted:
                     print('[!] File ' + file + ' was no accepted.')
         
-        print('[*] Done!')
+        print('[X] Done!')
 
         # 8
 
@@ -72,7 +73,8 @@ class Rename():
 
     def isSpanish(self):
         if self.FILE_NAME != '*P' and self.FILE_NAME != '*73HD*' and self.FILE_NAME != 'H*' and self.FILE_NAME != 'N*':
-            pass # Mufi Command
+            print("[X] Spanish")
+            #pass # Mufi Command
 
     def isPortuguese(self):
         if self.FILE_NAME != '*P' and self.FILE_NAME != '*73HD*' and self.FILE_NAME != 'H*' and self.FILE_NAME != 'N*':

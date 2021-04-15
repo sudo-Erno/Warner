@@ -99,6 +99,6 @@ class Rename():
     def isPromo(self):
         pass
 
-
-rename = Rename()
-rename.extractData()
+if __name__ == '__main__':
+    rename = Rename()
+    rename.extractData()
