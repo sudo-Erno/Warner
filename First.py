@@ -7,9 +7,9 @@ class Rename():
                 destination = r'C:\Users\Erno\Documents\Programas Atom\Python\Warner\RenamedFiles'):
         # self.WATCH_PATH = "./Warner/Ejemplos Softni Files"
         self.path = path
+        self.destination = destination
         self.accepted_patterns = [".spa", ".por", ".eng", ".pop", ".spp", ".enp", ".SPA", ".ENG", ".POR"]
 
-        self.FILE_PATH = ""
         self.FILE_NAME = ""
         self.FILE_EXTENSION = ""
         self.file_list = []
@@ -36,35 +36,38 @@ class Rename():
                     # 3 C
                     NEW_FILE_NAME = self.FILE_NAME + '_' + self.FILE_EXTENSION
 
-                    # Testing directories
-                    self.path = self.path + '\\' + self.FILE_NAME + '.' + self.FILE_EXTENSION
-                    self.destination = self.destination + '\\' + NEW_FILE_NAME + '.' + self.FILE_EXTENSION
+                    # Testing directories for renaming the files
+                    source = self.path + '\\' + self.FILE_NAME + '.' + self.FILE_EXTENSION
+                    final_destination = self.destination + '\\' + NEW_FILE_NAME + '.' + self.FILE_EXTENSION
 
-                    os.rename(self.path, self.destination) # Moves all files
+                    os.rename(source, final_destination) # Moves all files
         
-                for spanish_extension in self.SPANISH_EXTENSIONS:
-                    if self.FILE_EXTENSION == spanish_extension:
-                        self.isSpanish()
-                            
-                for portuguese_extension in self.PORTUGUESE_EXTENSIONS:
-                    if self.FILE_EXTENSION == portuguese_extension:
-                        self.isPortuguese()
-                
-                for english_extension in self.ENGLISH_EXTENSIONS:
-                    if self.FILE_EXTENSION == english_extension:
-                        self.isEnglish()
+                    for spanish_extension in self.SPANISH_EXTENSIONS:
+                        if self.FILE_EXTENSION == spanish_extension:
+                            self.isSpanish()
+                                
+                    for portuguese_extension in self.PORTUGUESE_EXTENSIONS:
+                        if self.FILE_EXTENSION == portuguese_extension:
+                            self.isPortuguese()
+                    
+                    for english_extension in self.ENGLISH_EXTENSIONS:
+                        if self.FILE_EXTENSION == english_extension:
+                            self.isEnglish()
 
-                # 8
-                if self.FILE_NAME != "*SpaF*" and self.FILE_NAME != "*EngF*" and self.FILE_NAME != "*PorF*" and self.FILE_NAME != "H*" and self.FILE_NAME != "N*":
-                    self.isFullSubtitle()
-                
-                # 9
-                if self.FILE_NAME == "H*" or self.FILE_NAME == "N*":
-                    self.isPromo()
+                    # 8
+                    if self.FILE_NAME != "*SpaF*" and self.FILE_NAME != "*EngF*" and self.FILE_NAME != "*PorF*" and self.FILE_NAME != "H*" and self.FILE_NAME != "N*":
+                        self.isFullSubtitle()
+                    
+                    # 9
+                    if self.FILE_NAME == "H*" or self.FILE_NAME == "N*":
+                        self.isPromo()
 
-                # 10
-                # 11
-                # 12
+                    # 10
+                    # 11
+                    # 12
+
+                if file_format == self.accepted_patterns[-1] and not format_accepted:
+                        print('[!] File ' + file + ' was no accepted.')
 
         print('[X] Done!')
 
